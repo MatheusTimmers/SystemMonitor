@@ -1,29 +1,19 @@
+#include "fetch_info.h"
 #include <stdio.h>
-#include <sys/file.h>
+#include <unistd.h>
 
 void update_html() {
-  char buffer[128];
-  FILE *rtc_file;
   FILE *html_file;
 
-  // Busca o arquivo RTC, com as informacaoes RealTime
-  rtc_file = fopen("/proc/driver/rtc", "r");
-  if (rtc_file == NULL) {
-    perror("Erro ao abrir /proc/driver/rtc");
-    return;
-  }
-
+  // Limpar o arquivo HTML e escrever o cabeçalho básico
   // Busca o arquivo HTML
   html_file = fopen("index.html", "w");
-  if (html_file == NULL) {
-    perror("Erro ao abrir index.html");
-    fclose(rtc_file);
+
+  if (!html_file)
     return;
-  }
 
   flock(fileno(html_file), LOCK_EX);
 
-  // Limpar o arquivo HTML e escrever o cabeçalho básico
   fprintf(html_file, "<html>\n");
   fprintf(html_file, "</head>\n");
   fprintf(html_file, "<body>\n");
@@ -36,10 +26,39 @@ void update_html() {
   fprintf(html_file, "        </div>\n");
   fprintf(html_file, "    </div>\n");
 
-  // Ler e escrever as informações do /proc/driver/rtc no HTML
-  while (fgets(buffer, sizeof(buffer), rtc_file)) {
-    fprintf(html_file, "<p>%s</p>\n", buffer);
-  }
+  char *idle_time = fetch_idle_time();
+  char *uptime = fetch_uptime();
+  char *version = fetch_version();
+  char *load_average = fetch_load_average();
+  char *cpu_info = fetch_cpu_info();
+  char *system_time = fetch_system_time();
+  char *memory_info = fetch_memory_info();
+  char *cpu_usage = fetch_cpu_usage();
+  char *io_stats = fetch_io_stats();
+  char *supported_filesystems = fetch_supported_filesystems();
+
+  fprintf(html_file, "<p>%s</p>\n", idle_time);
+  fprintf(html_file, "<p>%s</p>\n", uptime);
+  fprintf(html_file, "<p>%s</p>\n", version);
+  fprintf(html_file, "<p>%s</p>\n", load_average);
+  fprintf(html_file, "<p>%s</p>\n", cpu_info);
+  fprintf(html_file, "<p>%s</p>\n", system_time);
+  fprintf(html_file, "<p>%s</p>\n", memory_info);
+  fprintf(html_file, "<p>%s</p>\n", cpu_usage);
+  fprintf(html_file, "<p>%s</p>\n", io_stats);
+  fprintf(html_file, "<p>%s</p>\n", supported_filesystems);
+
+  // Libere a memória após o uso
+  free(idle_time);
+  free(uptime);
+  free(version);
+  free(load_average);
+  free(cpu_info);
+  free(system_time);
+  free(memory_info);
+  free(cpu_usage);
+  free(io_stats);
+  free(supported_filesystems);
 
   // Fechar as tags HTML
   fprintf(html_file, "</body></html>\n");
@@ -47,13 +66,12 @@ void update_html() {
   // Liberar a trava e fechar os arquivos
   flock(fileno(html_file), LOCK_UN);
   fclose(html_file);
-  fclose(rtc_file);
 }
 
 int main() {
   while (1) {
     update_html();
-    sleep(3000);
+    sleep(3);
   }
   return 0;
 }
