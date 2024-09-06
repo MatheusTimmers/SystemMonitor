@@ -218,3 +218,87 @@ char *fetch_supported_filesystems() {
 
   return buffer;
 }
+
+char *fetch_block_char_devices() {
+  FILE *file;
+  char *buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
+  char line[BUFFER_SIZE];
+
+  file = get_file("/proc/devices");
+  if (file == NULL) {
+    free(buffer);
+    return NULL;
+  }
+
+  strcpy(buffer, "Character and Block Devices:\n");
+
+  while (fgets(line, sizeof(line), file)) {
+    strcat(buffer, line);
+  }
+
+  fclose(file);
+  return buffer;
+}
+
+char *fetch_network_devices() {
+  FILE *file;
+  char *buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
+  char line[BUFFER_SIZE];
+
+  file = get_file("/proc/net/dev");
+  if (file == NULL) {
+    free(buffer);
+    return NULL;
+  }
+
+  strcpy(buffer, "Network Devices:\n");
+
+  // Ignorar as duas primeiras linhas de cabeçalhos
+  fgets(line, sizeof(line), file);
+  fgets(line, sizeof(line), file);
+
+  while (fgets(line, sizeof(line), file)) {
+    strcat(buffer, line);
+  }
+
+  fclose(file);
+  return buffer;
+}
+
+char *fetch_process_list() {
+  DIR *dir;
+  struct dirent *entry;
+  char *buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
+  char proc_name[BUFFER_SIZE];
+  char path[BUFFER_SIZE];
+  FILE *file;
+
+  strcpy(buffer, "Process List (PID - Name):\n");
+
+  // Abrir o diretório /proc
+  dir = opendir("/proc");
+  if (dir == NULL) {
+    perror("Erro ao abrir /proc");
+    free(buffer);
+    return NULL;
+  }
+
+  // Percorrer os diretórios de /proc
+  while ((entry = readdir(dir)) != NULL) {
+    // Verificar se o nome do diretório é numérico (PIDs são numéricos)
+    if (isdigit(entry->d_name[0])) {
+      snprintf(path, sizeof(path), "/proc/%s/comm", entry->d_name);
+
+      file = fopen(path, "r");
+      if (file != NULL) {
+        fgets(proc_name, sizeof(proc_name), file);
+        snprintf(buffer + strlen(buffer), BUFFER_SIZE - strlen(buffer),
+                 "%s - %s", entry->d_name, proc_name);
+        fclose(file);
+      }
+    }
+  }
+
+  closedir(dir);
+  return buffer;
+}

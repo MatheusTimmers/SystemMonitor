@@ -5,8 +5,6 @@
 void update_html() {
   FILE *html_file;
 
-  // Limpar o arquivo HTML e escrever o cabeçalho básico
-  // Busca o arquivo HTML
   html_file = fopen("index.html", "w");
 
   if (!html_file)
@@ -36,6 +34,9 @@ void update_html() {
   char *cpu_usage = fetch_cpu_usage();
   char *io_stats = fetch_io_stats();
   char *supported_filesystems = fetch_supported_filesystems();
+  char *devices = fetch_block_char_devices();
+  char *network = fetch_network_devices();
+  char *processes = fetch_process_list();
 
   fprintf(html_file, "<p>%s</p>\n", idle_time);
   fprintf(html_file, "<p>%s</p>\n", uptime);
@@ -47,6 +48,9 @@ void update_html() {
   fprintf(html_file, "<p>%s</p>\n", cpu_usage);
   fprintf(html_file, "<p>%s</p>\n", io_stats);
   fprintf(html_file, "<p>%s</p>\n", supported_filesystems);
+  fprintf(html_file, "<p>%s</p>\n", devices);
+  fprintf(html_file, "<p>%s</p>\n", network);
+  fprintf(html_file, "<p>%s</p>\n", processes);
 
   // Libere a memória após o uso
   free(idle_time);
@@ -59,11 +63,12 @@ void update_html() {
   free(cpu_usage);
   free(io_stats);
   free(supported_filesystems);
+  free(devices);
+  free(network);
+  free(processes);
 
-  // Fechar as tags HTML
   fprintf(html_file, "</body></html>\n");
 
-  // Liberar a trava e fechar os arquivos
   flock(fileno(html_file), LOCK_UN);
   fclose(html_file);
 }

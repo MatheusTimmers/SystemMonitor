@@ -1,6 +1,8 @@
 #ifndef FETCH_INFO_H
 #define FETCH_INFO_H
 
+#include <ctype.h>
+#include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -22,5 +24,8 @@ char *fetch_cpu_usage();
 char *fetch_memory_info();
 char *fetch_io_stats();
 char *fetch_supported_filesystems();
+char *fetch_process_list();
+char *fetch_network_devices();
+char *fetch_block_char_devices();
 
 #endif
