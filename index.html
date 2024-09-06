@@ -1,146 +1,155 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status do Sistema</title>
+<style>
+body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; }
+h1 { text-align: center; color: #444; }
+.container { width: 80%; margin: auto; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+table, th, td { border: 1px solid #ddd; }
+th, td { padding: 10px; text-align: left; }
+th { background-color: #f2f2f2; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Construção de Sistemas Operacionais</h1>
-        <div class="left-align">
-            <p><strong>Trabalho 1</strong></p>
-            <p>Integrantes: Matheus Timmers, Pedro de Ros e Matheus Robin</p>
-        </div>
-    </div>
-<p>Idle Time: 0 days, 22:29:03</p>
-<p>Uptime: 0 days, 01:49:05</p>
-<p>Linux version 6.8.0-40-generic (buildd@lcy02-amd64-078) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
-</p>
-<p>1.57 1.26 0.93 2/1843 41541
-</p>
-<p>AMD Ryzen 7 5700U with Radeon Graphics
-</p>
-<p>System Time: 2024-09-05 21:57:22</p>
-<p>Memory: Total = 7283 MB, Used = 6936 MB</p>
-<p>CPU Usage: 2%</p>
-<p>I/O Stats: Read = 4096 bytes, Write = 6201344 bytes</p>
-<p>Supported Filesystems:
-nodev	sysfs
-nodev	tmpfs
-nodev	bdev
-nodev	proc
-nodev	cgroup
-nodev	cgroup2
-nodev	cpuset
-nodev	devtmpfs
-nodev	configfs
-nodev	debugfs
-nodev	tracefs
-nodev	securityfs
-nodev	sockfs
-nodev	bpf
-nodev	pipefs
-nodev	ramfs
-nodev	hugetlbfs
-nodev	devpts
-	ext3
-	ext2
-	ext4
-	squashfs
-	vfat
-nodev	ecryptfs
-	fuseblk
-nodev	fuse
-nodev	fusectl
-nodev	efivarfs
-nodev	mqueue
-nodev	resctrl
-nodev	pstore
-nodev	autofs
-nodev	binfmt_misc
-nodev	overlay
-</p>
-<p>Character and Block Devices:
-Character devices:
-  1 mem
-  4 /dev/vc/0
-  4 tty
-  4 ttyS
-  5 /dev/tty
-  5 /dev/console
-  5 /dev/ptmx
-  5 ttyprintk
-  6 lp
-  7 vcs
- 10 misc
- 13 input
- 21 sg
- 29 fb
- 81 video4linux
- 89 i2c
- 99 ppdev
-108 ppp
-116 alsa
-128 ptm
-136 pts
-180 usb
-189 usb_device
-202 cpu/msr
-204 ttyMAX
-216 rfcomm
-226 drm
-234 media
-235 kfd
-236 aux
-237 cec
-238 nvme-generic
-239 nvme
-240 lirc
-241 hidraw
-242 ttyDBC
-243 bsg
-244 watchdog
-245 remoteproc
-246 ptp
-247 pps
-248 rtc
-249 dma_heap
-250 dax
-251 dimmctl
-252 ndctl
-253 tpm
-254 gpiochip
-261 accel
-
-Block devices:
-  7 loop
-  8 sd
-  9 md
- 11 sr
- 65 sd
- 66 sd
- 67 sd
- 68 sd
- 69 sd
- 70 sd
- 71 sd
-128 sd
-129 sd
-130 sd
-131 sd
-132 sd
-133 sd
-134 sd
-135 sd
-252 device-mapper
-253 virtblk
-254 mdp
-259 blkext
-</p>
-<p>Network Devices:
-    lo: 3747318   32274    0    0    0     0          0         0  3747318   32274    0    0    0     0       0          0
-enp3s0:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
-wlp4s0: 120361322   93146    0    0    0     0          0         0  7840202   40533    0    0    0     0       0          0
-docker0:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
-</p>
-<p>Process List (PID - Name):
-1 - systemd
+<div class="container">
+<h1>Monitoramento do Sistema</h1>
+<h2>Informações do Projeto</h2>
+<p><strong>Trabalho 1 - Construção de Sistemas Operacionais</strong></p>
+<p>Integrantes: Matheus Timmers, Pedro de Ros e Matheus Robin</p>
+<h2>Status do Sistema</h2>
+<table>
+<tr><th>Versão do Sistema</th><td>Linux version 6.8.0-40-generic (buildd@lcy02-amd64-078) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
+</td></tr>
+<tr><th>Uptime</th><td>0 days, 04:55:20</td></tr>
+<tr><th>Tempo Ocioso</th><td>I3 days, 03:56:17</td></tr>
+<tr><th>Data e Hora</th><td>2024-09-06 03:54:05</td></tr>
+<tr><th>Informações do Processador</th><td>AMD Ryzen 7 5700U with Radeon Graphics
+</td></tr>
+<tr><th>Carga Média</th><td>Carga Média (1 min):0.63 - Carga Média (5 min): 0.78 Carga Média (15 min):  1Processos em Execução: 2 Total de Processos: 2017 Último PID 184229 <br></td></tr>
+<tr><th>Uso de CPU</th><td>3%</td></tr>
+<tr><th>Informações de Memória</th><td>Memory: Total = 7283 MB, Used = 6413 MB</td></tr>
+<tr><th>Estatísticas de I/O</th><td>I/O Stats: Read = 0 bytes, Write = 626688 bytes</td></tr>
+<tr><th>Sistemas de Arquivos Suportados</th><td><b>Sistemas de arquivos de dispositivo de bloco:</b> - 	ext3
+ - 	ext2
+ - 	ext4
+ - 	squashfs
+ - 	vfat
+ - 	fuseblk
+<br><b>Sistemas de arquivos pseudo:</b> - sysfs
+ - tmpfs
+ - bdev
+ - proc
+ - cgroup
+ - cgroup2
+ - cpuset
+ - devtmpfs
+ - configfs
+ - debugfs
+ - tracefs
+ - securityfs
+ - sockfs
+ - bpf
+ - pipefs
+ - ramfs
+ - hugetlbfs
+ - devpts
+ - ecryptfs
+ - fuse
+ - fusectl
+ - efivarfs
+ - mqueue
+ - resctrl
+ - pstore
+ - autofs
+ - binfmt_misc
+ - overlay
+</td></tr>
+<tr><th>Dispositivos de Bloco e Caracteres</th><td><b>Character devices:</b><br>  1 mem
+<br>  4 /dev/vc/0
+<br>  4 tty
+<br>  4 ttyS
+<br>  5 /dev/tty
+<br>  5 /dev/console
+<br>  5 /dev/ptmx
+<br>  5 ttyprintk
+<br>  6 lp
+<br>  7 vcs
+<br> 10 misc
+<br> 13 input
+<br> 21 sg
+<br> 29 fb
+<br> 81 video4linux
+<br> 89 i2c
+<br> 99 ppdev
+<br>108 ppp
+<br>116 alsa
+<br>128 ptm
+<br>136 pts
+<br>180 usb
+<br>189 usb_device
+<br>202 cpu/msr
+<br>204 ttyMAX
+<br>216 rfcomm
+<br>226 drm
+<br>234 media
+<br>235 kfd
+<br>236 aux
+<br>237 nvme-generic
+<br>238 nvme
+<br>239 cec
+<br>240 lirc
+<br>241 hidraw
+<br>242 ttyDBC
+<br>243 bsg
+<br>244 watchdog
+<br>245 remoteproc
+<br>246 ptp
+<br>247 pps
+<br>248 rtc
+<br>249 dma_heap
+<br>250 dax
+<br>251 dimmctl
+<br>252 ndctl
+<br>253 tpm
+<br>254 gpiochip
+<br>261 accel
+<br>
+<br><br><b>Block devices:</b><br>  7 loop
+<br>  8 sd
+<br>  9 md
+<br> 11 sr
+<br> 65 sd
+<br> 66 sd
+<br> 67 sd
+<br> 68 sd
+<br> 69 sd
+<br> 70 sd
+<br> 71 sd
+<br>128 sd
+<br>129 sd
+<br>130 sd
+<br>131 sd
+<br>132 sd
+<br>133 sd
+<br>134 sd
+<br>135 sd
+<br>252 device-mapper
+<br>253 virtblk
+<br>254 mdp
+<br>259 blkext
+<br></td></tr>
+<tr><th>Dispositivos de Rede</th><td><table border='1'>
+<tr><th>Interface</th><th>Recebido (bytes)</th><th>Transmitido (bytes)</th><th>Pacotes Recebidos</th><th>Pacotes Transmitidos</th></tr>
+<tr><td>lo</td><td>57138398 bytes</td><td>57138398 bytes</td><td>294265</td><td>294265</td></tr>
+<tr><td>enp3s0</td><td>0 bytes</td><td>0 bytes</td><td>0</td><td>0</td></tr>
+<tr><td>wlp4s0</td><td>224874037 bytes</td><td>41619180 bytes</td><td>233288</td><td>118799</td></tr>
+<tr><td>docker0</td><td>0 bytes</td><td>0 bytes</td><td>0</td><td>0</td></tr>
+</table></td></tr>
+<tr><th>Processos Ativos</th><td>1 - systemd
 2 - kthreadd
 3 - pool_workqueue_release
 4 - kworker/R-rcu_g
@@ -161,6 +170,7 @@ docker0:       0       0    0    0    0     0          0         0        0     
 22 - idle_inject/2
 23 - migration/2
 24 - ksoftirqd/2
+25 - kworker/2:0-events
 26 - kworker/2:0H-events_highpri
 27 - cpuhp/4
 28 - idle_inject/4
@@ -181,7 +191,6 @@ docker0:       0       0    0    0    0     0          0         0        0     
 46 - idle_inject/10
 47 - migration/10
 48 - ksoftirqd/10
-49 - kworker/10:0-events
 50 - kworker/10:0H-events_highpri
 51 - cpuhp/12
 52 - idle_inject/12
@@ -202,13 +211,13 @@ docker0:       0       0    0    0    0     0          0         0        0     
 70 - idle_inject/3
 71 - migration/3
 72 - ksoftirqd/3
-73 - kworker/3:0-mm_percpu_wq
+73 - kworker/3:0-events
 74 - kworker/3:0H-events_highpri
 75 - cpuhp/5
 76 - idle_inject/5
 77 - migration/5
 78 - ksoftirqd/5
-79 - kworker/5:0-mm_percpu_wq
+79 - kworker/5:0-events
 80 - kworker/5:0H-events_highpri
 81 - cpuhp/7
 82 - idle_inject/7
@@ -224,6 +233,7 @@ docker0:       0       0    0    0    0     0          0         0        0     
 94 - idle_inject/11
 95 - migration/11
 96 - ksoftirqd/11
+97 - kworker/11:0-events
 98 - kworker/11:0H-events_highpri
 99 - cpuhp/13
 100 - idle_inject/13
@@ -238,95 +248,108 @@ docker0:       0       0    0    0    0     0          0         0        0     
 113 - kdevtmpfs
 114 - kworker/R-inet_
 116 - kauditd
-117 - khungtaskd
-118 - oom_reaper
-120 - kworker/R-write
-121 - kcompactd0
-122 - ksmd
+118 - khungtaskd
+119 - oom_reaper
+121 - kworker/R-write
+122 - kcompactd0
+123 - ksmd
 124 - khugepaged
 125 - kworker/R-kinte
 126 - kworker/R-kbloc
 127 - kworker/R-blkcg
 128 - irq/9-acpi
-130 - kworker/1:1-mm_percpu_wq
-132 - kworker/R-tpm_d
-133 - kworker/R-ata_s
-134 - kworker/R-md
-135 - kworker/R-md_bi
-136 - kworker/R-edac-
-137 - kworker/R-devfr
-138 - watchdogd
-140 - kworker/9:1-mm_percpu_wq
-141 - kworker/9:1H-kblockd
-142 - irq/25-AMD-Vi0-Evt
-143 - kworker/14:1-events
-144 - irq/26-AMD-Vi0-PPR
-145 - irq/27-AMD-Vi0-GA
-146 - kswapd0
-147 - ecryptfs-kthread
-148 - kworker/R-kthro
-149 - irq/28-pciehp
-152 - kworker/4:1-mm_percpu_wq
-156 - kworker/11:1-mm_percpu_wq
-160 - kworker/R-acpi_
+130 - kworker/R-tpm_d
+131 - kworker/R-ata_s
+135 - kworker/R-md
+136 - kworker/R-md_bi
+137 - kworker/R-edac-
+138 - kworker/R-devfr
+139 - watchdogd
+140 - kworker/1:1H-kblockd
+141 - irq/25-AMD-Vi0-Evt
+142 - irq/26-AMD-Vi0-PPR
+143 - irq/27-AMD-Vi0-GA
+145 - kswapd0
+146 - ecryptfs-kthread
+147 - kworker/R-kthro
+148 - irq/28-pciehp
+161 - kworker/R-acpi_
 162 - kworker/R-mld
 163 - kworker/R-ipv6_
-165 - kworker/12:1H-kblockd
+165 - kworker/5:1H-kblockd
 171 - kworker/R-kstrp
 173 - kworker/u35:0-hci0
-190 - kworker/R-charg
-210 - kworker/2:1H-kblockd
-213 - kworker/0:1H-kblockd
-214 - kworker/11:1H-kblockd
-229 - kworker/5:1H-kblockd
-230 - kworker/6:1H-kblockd
-231 - kworker/15:1H-kblockd
-232 - kworker/1:1H-kblockd
-233 - kworker/3:1H-kblockd
-234 - kworker/8:1H-kblockd
-235 - kworker/7:1H-kblockd
-236 - kworker/4:1H-kblockd
-237 - kworker/13:1H-kblockd
-245 - kworker/14:1H-kblockd
-280 - kworker/10:1H-kblockd
-300 - irq/34-ELAN050A:00
-307 - kworker/R-nvme-
-308 - kworker/R-nvme-
-309 - kworker/R-nvme-
-310 - kworker/R-nvme-
-321 - scsi_eh_0
-322 - kworker/R-scsi_
-323 - scsi_eh_1
-324 - kworker/R-scsi_
-331 - kworker/11:2-events
-334 - kworker/R-amdgp
-335 - kworker/R-ttm
-336 - card1-crtc0
-337 - card1-crtc1
-338 - card1-crtc2
-339 - card1-crtc3
-340 - card1-crtc4
-341 - kworker/R-amdgp
-342 - kworker/R-ttm
-373 - kworker/R-amdgp
-374 - kworker/R-amdgp
-375 - kworker/R-dm_vb
-376 - card2-crtc0
-377 - card2-crtc1
-378 - card2-crtc2
-379 - card2-crtc3
-521 - jbd2/nvme0n1p2-8
-522 - kworker/R-ext4-
-534 - kworker/6:2-mm_percpu_wq
-566 - systemd-journal
-592 - kworker/2:2-events
-644 - systemd-udevd
-718 - kworker/8:2-mm_percpu_wq
-861 - kworker/4:2-events
-899 - kworker/R-cfg80
-941 - kworker/R-crypt
-997 - systemd-oomd
-999 - kworker/7:3-events
-1000 - systemd-resolve
-1002 - systemd-ti</p>
-</body></html>
+191 - kworker/R-charg
+211 - kworker/11:1H-kblockd
+214 - kworker/13:1H-kblockd
+228 - kworker/6:1H-kblockd
+229 - kworker/3:1H-kblockd
+230 - kworker/2:1H-kblockd
+231 - kworker/8:1H-kblockd
+232 - kworker/15:1H-kblockd
+234 - kworker/0:1H-kblockd
+235 - kworker/12:1H-kblockd
+237 - kworker/7:1H-kblockd
+239 - kworker/4:1H-kblockd
+240 - kworker/9:1H-kblockd
+241 - kworker/14:1H-kblockd
+244 - kworker/10:1H-kblockd
+318 - irq/34-ELAN050A:00
+319 - scsi_eh_0
+320 - kworker/R-scsi_
+322 - scsi_eh_1
+323 - kworker/R-scsi_
+325 - kworker/R-nvme-
+326 - kworker/R-nvme-
+327 - kworker/R-nvme-
+328 - kworker/R-nvme-
+337 - kworker/R-amdgp
+338 - kworker/R-ttm
+339 - card1-crtc0
+340 - card1-crtc1
+341 - card1-crtc2
+342 - card1-crtc3
+343 - card1-crtc4
+344 - kworker/R-amdgp
+345 - kworker/R-ttm
+376 - kworker/R-amdgp
+377 - kworker/R-amdgp
+378 - kworker/R-dm_vb
+379 - card2-crtc0
+380 - card2-crtc1
+381 - card2-crtc2
+382 - card2-crtc3
+524 - kworker/0:2-events
+525 - jbd2/nvme0n1p2-8
+526 - kworker/R-ext4-
+571 - systemd-journal
+649 - systemd-udevd
+849 - kworker/R-cfg80
+879 - kworker/R-crypt
+994 - systemd-oomd
+998 - systemd-resolve
+1001 - systemd-timesyn
+1078 - napi/phy0-8194
+1079 - napi/phy0-8195
+1080 - napi/phy0-8196
+1100 - accounts-daemon
+1104 - acpid
+1109 - avahi-daemon
+1112 - bluetoothd
+1115 - cron
+1116 - dbus-daemon
+1124 - irqbalance
+1127 - networkd-dispat
+1132 - polkitd
+1137 - power-profiles-
+1138 - rsyslogd
+1153 - snapd
+1158 - switcheroo-co</td></tr>
+</table>
+<footer>
+  <p>&copy; 2024 Monitoramento de Sistemas. Todos os direitos reservados.</p>
+ <p>Existem apenas dois tipos de linguagens de programação: aquelas das quais as pessoas sempre reclamam e aquelas que ninguém usa.</p>
+</footer>
+</div>
+</body>
+</html>

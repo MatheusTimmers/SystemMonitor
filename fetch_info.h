@@ -11,6 +11,7 @@
 
 #define ERROR_GET_FILE "Erro ao abrir o arquivo"
 #define BUFFER_SIZE 4096
+#define LINE_SIZE 512
 
 FILE *get_file(char *name);
 
