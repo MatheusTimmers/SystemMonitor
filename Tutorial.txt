@@ -1,0 +1,39 @@
+TUTORIAL
+
+1 - Os arquivos "pre-build.sh" e "S51monitor-config" devem ser colocados dentro da pasta /custom-scripts e dar autorização ao pre-build.sh com o seguinte comando:
+
+	$ chmod +x custom-scripts/pre-build.sh
+
+
+------------------------------------------------------------------------------------
+
+2 - Os binários "monitor" e "server" devem ser colocados em /buildroot-2024.05.2/output/target/bin
+
+	OBS: Caso não funcione, talvez tenha que compilar novamente nos arquivos "fetch_info.c" "simple_http_server.c" "system_monitor.c" com os seguintes comandos:
+	
+		$ i686-linux-gcc simple_http_server.c -o server
+		$ i686-linux-gcc system_monitor.c fetch_info.c -o monitor
+
+------------------------------------------------------------------------------------
+
+
+3 - Ir até o diretório onde esta instalado a distribuição e dar o comando make através do terminal:
+	
+	exemplo: matheus@MatheusPC:~/linuxdistro/buildroot-2024.05.2$ make
+		
+------------------------------------------------------------------------------------
+		
+		
+4 - Através do terminal, executar o seguinte comando:
+
+	$ sudo qemu-system-i386 --device e1000,netdev=eth0,mac=aa:bb:cc:dd:ee:ff --netdev tap,id=eth0,script=custom-scripts/qemu-ifup --kernel output/images/bzImage --hda output/images/rootfs.ext2 --nographic --append "console=ttyS0 root=/dev/sda"
+		
+------------------------------------------------------------------------------------
+		
+		
+5 - Após isso, o programa já está rodando. Agora basta ir no navegador web e digitar [IP-DO-GUEST]:8080:
+	
+		
+	exemplo: http://192.168.1.10:8080/
+		
+	(192.168.1.10 é o ip da distribuição definida no tutorial 1.2, e 8080 é a porta definida nos arquivos fornecidos pelo professor para realizar o trabalho)

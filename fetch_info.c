@@ -212,24 +212,16 @@ char *fetch_io_stats() {
   if (!buffer)
     return NULL;
 
-  file = get_file("/proc/self/io");
+  file = get_file("/proc/diskstats");
   if (file == NULL) {
     free(buffer);
     return NULL;
   }
 
-  while (fgets(buffer, BUFFER_SIZE, file)) {
-    if (strncmp(buffer, "read_bytes", 10) == 0) {
-      sscanf(buffer, "read_bytes: %ld", &read_bytes);
-    } else if (strncmp(buffer, "write_bytes", 11) == 0) {
-      sscanf(buffer, "write_bytes: %ld", &write_bytes);
-    }
-  }
+  fgets(buffer, BUFFER_SIZE, file);
+
   fclose(file);
 
-  snprintf(buffer, BUFFER_SIZE,
-           "I/O Stats: Read = %ld bytes, Write = %ld bytes", read_bytes,
-           write_bytes);
   return buffer;
 }
 
