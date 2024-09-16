@@ -55,6 +55,7 @@ void update_html() {
   if (!html_file)
     return;
 
+  // Trava o arquivo
   flock(fileno(html_file), LOCK_EX);
 
   create_header(html_file);
